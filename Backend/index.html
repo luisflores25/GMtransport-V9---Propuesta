@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript">
+    const ws = new WebSocket('ws://localhost:6060');
+
+    // Browser WebSockets have slightly different syntax than `ws`.
+    // Instead of EventEmitter syntax `on('open')`, you assign a callback
+    // to the `onopen` property.
+    ws.onopen = () => {
+      document.querySelector('#send').addEventListener('click', function () {
+        ws.send(document.querySelector('#rfc').value);
+      });
+    };
+
+    ws.onmessage = (msg) => {
+      document.querySelector('#messages').innerHTML += `<div>${msg.data}</div>`;
+    };
+  </script>
+</head>
+
+<body>
+  <h1>Chat</h1>
+  <div>
+    <input id="rfc" placeholder="RFC">
+    <button id="send">Connectar</button><br>
+  </div>
+  <div id="messages">
+  </div>
+</body>
+
+</html>
