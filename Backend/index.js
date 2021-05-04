@@ -7,7 +7,7 @@ var config = require('./config.json');
 
 //se declara el cliente de redis
 var Redis = require("ioredis");
-////
+
 mongoose.set("useFindAndModify", false);//Desactiva metodos antiguos
 mongoose.Promise = global.Promise;//Evita falla en la conexion a la bd
 mongoose.connect('mongodb://localhost:27017/PruebaDB', { useNewUrlParser: true })
