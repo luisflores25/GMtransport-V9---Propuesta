@@ -37,7 +37,7 @@ var controllerUser = {
             var validate_user = !validator.isEmpty(params.usuario);
             var validate_pass = !validator.isEmpty(params.password);
         } catch (error) {
-            return res.status(200).send({
+            return res.status(404).send({
                 status: 'Error',
                 message: 'Faltan datos por enviar !!'
             });
@@ -97,6 +97,23 @@ var controllerUser = {
                 }
             });
         }
+    },
+    auth: (req, res) => {
+        jwt.verify(req.token,SECRET_KEY,(err, authorizedData) => {
+            if (err) {
+                return res.status(409).send({
+                    status: 'Error', 
+                    message:'Ocurrió un error'});
+            } else {
+                //Si el token fue correctamente verificado, podemos regresar los datos autorizados
+                res.json({
+                    message: 'Successfull log in',
+                    authorizedData
+                });
+                console.log('SUCCESS: Connected to protected route');
+            }
+        });
     }
 }
+
 module.exports = controllerUser;
