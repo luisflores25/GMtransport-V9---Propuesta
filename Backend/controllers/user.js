@@ -60,9 +60,7 @@ var controllerUser = {
                 } else {
                     const resultUsuario = user.usuario;
                     if (resultUsuario && resultUsuario == (params.usuario)) {
-                        const resultPassword = user.password;
-
-                        /*var passwordIsValid = bcrypt.compareSync(
+                        var passwordIsValid = bcrypt.compareSync(
                             params.password,
                             user.password
                           );
@@ -71,9 +69,7 @@ var controllerUser = {
                             accessToken: null,
                             message: "Invalid Password!"
                             });
-                          */
-
-                        if (resultPassword && resultPassword == (params.password)) {
+                        }else{
                             const expiresIn = 60;
                             const accessToken = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: expiresIn });
                             return res.status(200).send({
@@ -81,11 +77,6 @@ var controllerUser = {
                                 user: {_id: user.id, empresa: user.empresa, usuario: user.usuario},
                                 expiresIn,
                                 accessToken
-                            })
-                        } else {//password incorrecto
-                            res.status(409).send({
-                                status: 'Error',
-                                message: 'Something is wrong'
                             });
                         }
                     } else {
