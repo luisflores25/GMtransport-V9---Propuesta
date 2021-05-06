@@ -5,10 +5,8 @@ const bcrypt = require('bcryptjs');
 const SECRET_KEY = 'secretkeyGM1234';
 const User = require('../models/user');
 var validator = require('validator');
-const { param, search } = require('../rutas/article');
 const fs = require('fs');//file system lib
 const path = require('path');//permite sacar la ruta de un archivo en el sistema de arhivos del servidor
-const { create } = require('../models/article');
 
 exports.createUser = (req, res, next) => {
     const newUser = {
