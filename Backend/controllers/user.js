@@ -4,27 +4,10 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const SECRET_KEY = 'secretkeyGM1234';
 const User = require('../models/user');
+const refreshToken = require('../models/refresh-token.model');
 var validator = require('validator');
 const fs = require('fs');//file system lib
 const path = require('path');//permite sacar la ruta de un archivo en el sistema de arhivos del servidor
-
-exports.createUser = (req, res, next) => {
-    const newUser = {
-        empresa: req.body.empresa,
-        usuario: req.body.usuario.usuario,
-        password: req.body.password
-    }
-    User.create(newUser, (err, user) => {
-        if (err) return res.status(500).send('Server error');
-        const expiresIn = 24 * 60;
-        const accessToken = jwt.sign({ id: user.id },
-            SECRET_KEY, {
-            expiresIn: expiresIn
-        });
-
-        res.send({ user });
-    })
-}; // end controller
 
 var controllerUser = {
     login: (req, res) => {
