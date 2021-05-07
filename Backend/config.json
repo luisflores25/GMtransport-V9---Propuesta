@@ -1,5 +1,6 @@
 {
   "RedisPort": 6379,
   "RedisServer": "localhost",
-  "RedisPassword": ""
+  "RedisPassword": "",
+  "SECRET_KEY" : "secretkeyGM1234"
 }

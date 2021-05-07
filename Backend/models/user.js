@@ -11,4 +11,4 @@ var UsuarioSchema = Schema({
 });
 
 module.exports = mongoose.model('Usuario', UsuarioSchema);
-// articles --> guarda documentos de este tipo y con estructura dentro de la coleccion
+// usuarios --> guarda documentos de este tipo y con estructura dentro de la coleccion
