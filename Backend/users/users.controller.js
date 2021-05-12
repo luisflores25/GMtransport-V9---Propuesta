@@ -39,9 +39,7 @@ function authenticate(req, res, next) {
 
 function refreshToken(req, res, next) {
     const token = req.cookies.refreshToken;
-    console.log(req.cookies.refreshToken);
     const ipAddress = req.ipAddress;
-    console.log(ipAddress);
     userService.refreshToken({ token, ipAddress })
         .then(({ refreshToken, ...user }) => {
             setTokenCookie(res, refreshToken);

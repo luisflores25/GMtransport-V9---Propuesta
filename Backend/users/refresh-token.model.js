@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' },
+    user: { type: Schema.Types.ObjectId, ref: 'Usuario' },
     token: String,
     expires: Date,
     created: { type: Date, default: Date.now },
