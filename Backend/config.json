@@ -2,5 +2,6 @@
   "RedisPort": 6379,
   "RedisServer": "localhost",
   "RedisPassword": "",
-  "SECRET_KEY" : "secretkeyGM1234"
+  "secret" : "secretkeyGM1234",
+  "connectionString": "mongodb://localhost/PruebaDB"
 }

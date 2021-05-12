@@ -26,5 +26,7 @@ const checkToken = (req, res, next) => {
 router.post('/login',UserController.login);
 router.get('/auth',checkToken,UserController.auth);
 
+
+
 module.exports = router;
 

@@ -38,5 +38,5 @@ app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: 
 app.use('/api', article_routes);
 
 
-// Esportar modulo (fichero actual)
+// Exportar modulo (fichero actual)
 module.exports = app
