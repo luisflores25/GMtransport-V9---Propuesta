@@ -25,11 +25,11 @@ if (!user || !bcrypt.compareSync(password, user.password || empresa !== user.emp
 
     // save refresh token
     await refreshToken.save();
-    console.log({ 
+    /*console.log({ 
         ...basicDetails(user),
         jwtToken,
         refreshToken: refreshToken.token
-    });
+    });*/
     // return basic details and tokens
     return { 
         ...basicDetails(user),

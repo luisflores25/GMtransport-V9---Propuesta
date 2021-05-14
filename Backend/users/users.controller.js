@@ -32,6 +32,8 @@ function authenticate(req, res, next) {
     userService.authenticate({ empresa, usuario, password, ipAddress})
         .then(({ refreshToken, user }) => {
             setTokenCookie(res, refreshToken);
+            console.log("usuario auth: ")
+            console.log(user);
             res.json(user);
         })
         .catch(next);
