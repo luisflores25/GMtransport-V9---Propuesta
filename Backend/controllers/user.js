@@ -4,9 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var config = require('../config.json');
 const User = require('../users/user');
-const refreshT = require('../users/refresh-token.model');
 var validator = require('validator');
-const userService = require('../users/user.service');
 const fs = require('fs');//file system lib
 const path = require('path');//permite sacar la ruta de un archivo en el sistema de arhivos del servidor
 
@@ -53,7 +51,7 @@ var controllerUser = {
                             });
                         } else {
                             const expiresIn = 60;
-                            const accessToken = jwt.sign({ id: user.id }, config.SECRET_KEY, { expiresIn: expiresIn });
+                            const accessToken = jwt.sign({ id: user.id }, config.secret, { expiresIn: expiresIn });
                             return res.status(200).send({
                                 status: 'success',
                                 user: { _id: user.id, empresa: user.empresa, usuario: user.usuario },

@@ -9,8 +9,6 @@ const cors = require('cors');
 // Ejecutar express (http)
 var app = express();
 
-const createTestUser = require('./_helpers/create-test-user');
-createTestUser();
 
 // cargar ficheros rutas
 var article_routes = require("./rutas/article");
@@ -31,8 +29,6 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-
-app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
 //Añadir prefijos a rutas
 app.use('/api', article_routes);
