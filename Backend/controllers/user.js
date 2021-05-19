@@ -70,7 +70,7 @@ var controllerUser = {
         }
     },
     auth: (req, res) => {
-        jwt.verify(req.token, config.SECRET_KEY, (err, authorizedData) => {
+        jwt.verify(req.token, config.secret, (err, authorizedData) => {
             if (err) {
                 return res.status(409).send({
                     status: 'Error',
